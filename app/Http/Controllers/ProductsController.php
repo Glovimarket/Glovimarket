@@ -7,6 +7,8 @@ use App\Models\Categories;
 use App\Models\File;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Storage;
+
 class ProductsController extends Controller
 {
     #Posteriormente esta funcion ira en el controlador de admin, aqui es solo de prueba
@@ -63,10 +65,11 @@ class ProductsController extends Controller
 
     public function update_file(Request $request, Products $product)
     {
-        $ruta = $product->url;
-        echo $ruta;
-
         $imagen = $request->file('file')->store('public/');
+
+        $url = Storage::url($imagen);
+
+        return $imagen;
     }
     
 

@@ -22,7 +22,7 @@
 			
 				<div class="container-mi-perfil-img">
 				<img src="{{$file->url}}">
-				<form action="{{route('product.update_file', $product)}}" class="" id="" method="POST">
+				<form action="{{route('product.update_file')}}" class="" id="" method="post">
 					@csrf
 					<input type="file" name="file" id="">
 					<input type="submit" value="subir">
