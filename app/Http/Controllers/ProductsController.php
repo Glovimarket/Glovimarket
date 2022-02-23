@@ -63,13 +63,29 @@ class ProductsController extends Controller
         return view('products.show', compact('product'));
     }
 
-    public function update_file(Request $request, Products $product)
+    public function storage_file(Request $request, Products $product)
     {
-        $imagen = $request->file('file')->store('public/');
+        $imagenes = $request->file('file')->store('/public');
 
-        $url = Storage::url($imagen);
+        $url = Storage::url($imagenes);
 
-        return $imagen;
+         File::create([
+             
+            'url' => $url
+        ]);
+
+        $product = Products::find($product);
+
+        $product->name = $product->name;
+        $product->amount = $product->amount;
+        $product->value = $product->value;
+        $product->description = $product->description;
+        $product->categories_id = $product->categories_id;
+        $product->file_id = $request->_token;
+        $product->save();
+        return view('products.show', compact('product'));
+
+        return $imagenes;
     }
     
 
