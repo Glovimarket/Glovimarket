@@ -81,7 +81,9 @@ class FileController extends Controller
      */
     public function update(Request $request, File $product)
     {
-        //
+        $imagen = $request->file('file')->store('public/');
+
+        return $imagen;
     }
 
     /**

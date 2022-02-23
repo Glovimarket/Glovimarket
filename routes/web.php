@@ -56,7 +56,7 @@ Auth::routes();
 Route::post('register/store', [RegisterController::class, 'create'])->name('register.store');
 
 
-Route::post('product/update_file', [ProductsController::class, 'update_file'])->name('product.update_file');
+Route::post('product/storage_file', [ProductsController::class, 'storage_file'])->name('product.storage_file');
 
 //========== Rutas para la seccion de los Usuarios========
 
