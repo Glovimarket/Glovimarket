@@ -7,6 +7,11 @@ use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\SellerCategoriesController;
+use App\Http\Controllers\SellerIncomeController;
+use App\Http\Controllers\SellerProductsController;
+use App\Http\Controllers\SellerExitController;
+use App\Http\Controllers\SellerSuppliersController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Mail\EmailMailable;
@@ -41,7 +46,10 @@ Route::get('/login', function () {
 
 Route::get('/register', function () {
     return view('auth.register');
-})->name('register');
+})->name('register'); 
+
+
+
 
 Auth::routes();
 
@@ -80,3 +88,23 @@ Route::resource('file', FileController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+
+//========== Rutas para la seccion de las Entradas========
+Route::resource('seller/seller_incomes', SellerIncomeController::class);
+
+//========== Rutas para la seccion de las Categorias========
+Route::resource('seller/seller_categories', SellerCategoriesController::class);
+
+//========== Rutas para la seccion de ls Proveedores========
+Route::resource('seller/seller_suppliers', SupplierController::class);
+
+
+
+Route::resource('seller/seller_products', SellerProductsController::class);     
+
+
+Route::resource('seller/seller_exit', SellerExitController::class);    
