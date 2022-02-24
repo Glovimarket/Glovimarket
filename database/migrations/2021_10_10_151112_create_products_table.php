@@ -21,8 +21,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->unsignedInteger('categories_id'); 
             $table->foreign('categories_id')->references('id')->on('categories');
-            $table->unsignedInteger('file_id'); 
-            $table->foreign('file_id')->references('id')->on('file');
+            $table->string('url')->nullable();
             $table->timestamps();
         });
     }

@@ -21,7 +21,6 @@ class ProductsFactory extends Factory
             'amount' => $this->faker->randomNumber(),
             'value' => $this->faker->randomNumber(),
             'categories_id' => $this->faker->randomElement($array = array ('1','2','3')),
-            'file_id' => $this->faker->randomElement($array = array ('1','2','3')),
             'description' => $this->faker->sentence(),
         ];
     }
