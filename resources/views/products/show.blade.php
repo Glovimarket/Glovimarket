@@ -9,6 +9,7 @@
 @section('css')
 <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+{{$id = $product->id}}
 @endsection
 
 <!----------- Tabla --------------------->
@@ -21,22 +22,23 @@
 			<main>
 			
 				<div class="container-mi-perfil-img">
-				<img src="{{$file->url}}">
-				<form action="{{route('product.storage_file',  $product)}}" class="" id="" method="post" enctype="multipart/form-data">
+				<img src="{{$product->url}}">
+				
+				<form action="{{route('product.storage_file',  $id)}}" class="" id="" method="post" enctype="multipart/form-data">
 					@csrf
-					<input type="file" name="file" id="file">
+					@method('put')
+					<input type="file" name="url" id="file">
 					<input type="submit" value="subir">
-				</form>
 				</div>
 			
 				<section class=" dashboard-cards-single tittle-main-space">
 					<div class="tittle-main animate fadeInDown one ">
 						<div class="container-mi-perfil">
-							<p>Detalles Personales</p>
-							<form action="" method="post">
-								@csrf
-								@method('put')
-								
+							<p>Detalles Personales</p>	
+							<ul style="display: none">
+								<small>Nombre del Producto</small>
+								<li><input name="id" type="text" value="{{$product->id}}"></li>
+							</ul>
 							<ul>
 								<small>Nombre del Producto</small>
 								<li><input name="name" type="text" value="{{$product->name}}"></li>
@@ -49,9 +51,18 @@
 								<small>Valor del Producto</small>
 								<li><input name="value" type="text" value="{{$product->value}}"></li>
 							</ul>
+							
 							<ul>
 								<small>Descripcion del Producto</small>
 								<li><input name="description" type="text" value="{{$product->description}}"></li>
+							</ul>
+							<ul>
+								<small>Categopria del Producto</small>
+								<li><select name="categories_id" id="">
+									@foreach ($categories as $category)
+								<option value="{{$category->id}}">{{$category->name}}</option>
+								@endforeach
+								</select></li>
 							</ul>
 							<div class="container-mi-perfil-img">
 								<button type="submit"class="mi-perfil-guardar-cambios">Guardar cambios</button>

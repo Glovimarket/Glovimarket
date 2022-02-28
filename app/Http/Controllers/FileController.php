@@ -7,7 +7,7 @@ use App\Models\file;
 
 use Illuminate\Support\Facades\Storage;
 
-class FileController extends Controller
+class FileController
 {
     /**
      * Display a listing of the resource.

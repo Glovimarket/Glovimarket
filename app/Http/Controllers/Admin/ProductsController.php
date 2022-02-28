@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Products;
 use App\Models\Categories;
-use App\Models\File;
-use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Storage;
+
 
 class ProductsController extends Controller
 {
@@ -28,9 +28,9 @@ class ProductsController extends Controller
     public function show($id){
 
         $product = Products::find($id);
-        $file = File::find($product->file_id);
+        $categories = Categories::all();
 
-        return view('products.show', compact('product', 'file'));
+        return view('products.show', compact('product', 'categories'));
     }
 
     public function store(Request $request){
@@ -63,29 +63,25 @@ class ProductsController extends Controller
         return view('products.show', compact('product'));
     }
 
-    public function storage_file(Request $request, Products $product)
+    public function storage_file(Request $request)
     {
-        $imagenes = $request->file('file')->store('/public');
+        $imagenes = $request->file('url')->store('/public');
 
         $url = Storage::url($imagenes);
 
-         File::create([
-             
-            'url' => $url
-        ]);
+        $product = Products::find($request->id);
+        $request->url = $url;
+        $product->name = $request->name;
+        $product->amount = $request->amount;
+        $product->value = $request->value;
+        $product->description = $request->description;
+        $product->categories_id = $request->categories_id;
+        $product->url = $request->url;
 
-        $product = Products::find($product);
-
-        $product->name = $product->name;
-        $product->amount = $product->amount;
-        $product->value = $product->value;
-        $product->description = $product->description;
-        $product->categories_id = $product->categories_id;
-        $product->file_id = $request->_token;
         $product->save();
-        return view('products.show', compact('product'));
+        #return view('products.show', compact('product'));
 
-        return $imagenes;
+        return $request;
     }
     
 

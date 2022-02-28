@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Supplier;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Supplier;
 
 class SupplierController extends Controller
 {
-    #Posteriormente esta funcion ira en el controlador de admin, aqui es solo de prueba
-
     public function index(){
         $suppliers = Supplier::all();
 
