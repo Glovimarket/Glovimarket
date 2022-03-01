@@ -18,7 +18,7 @@
 					<div class="tittle-main animate fadeInDown one ">
 						<div class="container-mi-perfil">
 							<p>Detalles Personales</p>
-							<form action="{{route('products.store')}}" method="post">
+							<form action="{{route('admin.products.store')}}" method="post">
 								@csrf
 								
 							<ul>
