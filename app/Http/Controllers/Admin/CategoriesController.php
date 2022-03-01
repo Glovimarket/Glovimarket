@@ -13,20 +13,20 @@ class CategoriesController extends Controller
     public function index(){
         $categories = Categories::all();
 
-        return view('categories.index', compact('categories'));
+        return view('admin.categories.index', compact('categories'));
     }
 
     public function create(){
         $categories = Categories::all();
 
-        return view('categories.create', compact('categories'));
+        return view('admin.categories.create', compact('categories'));
     }
 
     public function show($id){
 
         $category = Categories::find($id);
 
-        return view('categories.mi-perfil', compact('category'));
+        return view('admin.categories.show', compact('category'));
     }
 
     public function store(Request $request){
@@ -36,12 +36,12 @@ class CategoriesController extends Controller
 
         $category->save();
 
-        return redirect()->route('categories.index');
+        return redirect()->route('admin.categories.index');
     }
 
     public function edit(Categories $id)
     {
-        return view('categories.edit', compact('id'));
+        return view('admin.categories.edit', compact('id'));
     }
 
     public function update(Request $request, Categories $category)
@@ -49,13 +49,13 @@ class CategoriesController extends Controller
         $category->name = $request->name;
 
         $category->save();
-        return view('categories.mi-perfil', compact('category'));
+        return view('admin.categories.show', compact('category'));
     }
 
     public function destroy(Categories $category)
     {
         $category->delete();
 
-        return redirect()->route('categories.index');
+        return redirect()->route('admin.categories.index');
     }
 }

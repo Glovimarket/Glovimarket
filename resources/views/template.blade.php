@@ -54,27 +54,27 @@
 	<div class="sidebar-menu">
 			<ul>
 				<li>
-					<a href="{{route('products.index')}}" class="{{request()->routeIs('products.*') ? 'active' : ''}}">
+					<a href="{{route('admin.products.index')}}" class="{{request()->routeIs('products.*') ? 'active' : ''}}">
 						<ion-icon name="pricetag-outline"> </ion-icon> <span class="{{request()->routeIs('products.*') ? 'active-text' : ''}}">Productos</span> </a>
 				</li>
 				<li>
-					<a href="{{route('categories.index')}}" class="sidebar-nav-link">
+					<a href="{{route('admin.categories.index')}}" class="sidebar-nav-link">
 						<ion-icon name="heart-outline"> </ion-icon> <span class="sidebar-nav-link-text">Categorias</span> </a>
 				</li>
 				<li>
-					<a href="{{route('exits.index')}}" class="sidebar-nav-link">
+					<a href="{{route('admin.exits.index')}}" class="sidebar-nav-link">
 						<ion-icon name="card-outline"> </ion-icon> <span class="sidebar-nav-link-text">Facturas</span> </a>
 				</li>
 				<li>
-					<a href="{{route('user.index')}}" class="sidebar-nav-link">
+					<a href="{{route('admin.users.index')}}" class="sidebar-nav-link">
 						<ion-icon name="person-add-outline"> </ion-icon> <span class="sidebar-nav-link-text">Usuarios</span> </a>
 				</li>
 				<li>
-					<a href="{{route('rols.index')}}" class="sidebar-nav-link">
+					<a href="{{route('admin.rols.index')}}" class="sidebar-nav-link">
 						<ion-icon name="people-outline"> </ion-icon> <span class="sidebar-nav-link-text">Roles</span> </a>
 				</li>
 				<li>
-					<a href="{{route('incomes.index')}}" class="sidebar-nav-link">
+					<a href="{{route('admin.incomes.index')}}" class="sidebar-nav-link">
 						<ion-icon name="card-outline"> </ion-icon> <span class="sidebar-nav-link-text">Ingresos</span> </a>
 				</li>
 				<li>
@@ -82,7 +82,7 @@
 						<ion-icon name="person-outline"> </ion-icon> <span class="sidebar-nav-link-text">Mi Perfil</span> </a>
 				</li>
 				<li>
-					<a href="{{route('suppliers.index')}}" class="sidebar-nav-link">
+					<a href="{{route('admin.suppliers.index')}}" class="sidebar-nav-link">
 						<ion-icon name="person-outline"> </ion-icon> <span class="sidebar-nav-link-text">Proveedores</span> </a>
 				</li>			
 				<li>

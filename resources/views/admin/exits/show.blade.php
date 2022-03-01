@@ -25,36 +25,32 @@
 					<div class="tittle-main animate fadeInDown one ">
 						<div class="container-mi-perfil">
 							<p>Detalles Personales</p>
-							<form action="{{route('incomes.update', $income)}}" method="post">
+							<form action="{{route('admin.exits.update', $exit)}}" method="post">
 								@csrf
 								@method('put')
 
 								
 							<ul>
-								<small>Nombre del Proveedor</small>
-								<li><input name="users_id" type="text" value="{{$income->users_id}}"></li>
+								<small>Nombre del Cliente</small>
+								<li><input name="users_id" type="text" value="{{$exit->users_id}}"></li>
 							</ul>
 							<ul>
-								<small>Nombre del Prodicto</small>
-								<li><input name="products_id" type="text" value="{{$income->products_id}}"></li>
+								<small>Producto Comprado</small>
+								<li><input name="products_id" type="text" value="{{$exit->products_id}}"></li>
 							</ul>
 							<ul>
-								<small>Cantidad Existentes</small>
-								<li><input name="amount_products" type="text" value="{{$income->amount_products}}"></li>
+								<small>Cantidad del Producto</small>
+								<li><input name="amount_products" type="text" value="{{$exit->amount_products}}"></li>
 							</ul>
 							<ul>
-								<small>Valor del Ingreso</small>
-								<li><input name="value" type="text" value="{{$income->value}}"></li>
-							</ul>
-							<ul>
-								<small>Fecha del Ingreso</small>
-								<li><input name="date" type="text" value="{{$income->date}}"></li>
+								<small>Valor del Producto</small>
+								<li><input name="value" type="text" value="{{$exit->value}}"></li>
 							</ul>
 							<div class="container-mi-perfil-img">
 								<button type="submit"class="mi-perfil-guardar-cambios">Guardar cambios</button>
 							</div>
 							</form>
-							<form action="{{route('incomes.destroy', $income)}}" method="post">
+							<form action="{{route('admin.exits.destroy', $exit)}}" method="post">
 								@csrf
 								@method('delete')
 								<button type="submit"class="mi-perfil-guardar-cambios">Eliminar Usuario</button>

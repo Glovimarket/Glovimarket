@@ -1,13 +1,13 @@
 @extends('template')
 
 <!----------- Settings template --------------------->
-@section('titulo','Productos')
-@section('icon','pricetag')
+@section('titulo','Categorias')
+@section('icon','heart')
 
 <!----------- Tabla --------------------->
 @section('main')
 
-									<button data-bs-toggle="modal" data-bs-target="#createModal"><a href="{{route('products.create')}}">Añadir</a>
+									<button data-bs-toggle="modal" data-bs-target="#createModal"><a href="{{route('admin.categories.create')}}">Añadir</a>
 											<ion-icon name="chevron-forward-outline"> </ion-icon>
 										</button>
 								</div>
@@ -17,20 +17,14 @@
 											<thead>
 												<tr>
 													<td>Nombre </td>
-													<td>Cantidad</td>
-													<td>Valor</td>
-													<td>Descripcion</td>
 													<td>Controles</td>
 												</tr>
 											</thead>
 											<tbody>
-													@foreach ($products as $product)
+													@foreach ($categories as $category)
 														<tr>
-															<td>{{$product->name}}</td>
-															<td>{{$product->amount}}</td>
-															<td>{{$product->value}}</td>
-															<td>{{$product->description}}</td>
-															<td><a href="{{route('products.show', $product->id)}}">Detalles</a></td>
+															<td>{{$category->name}}</td>
+															<td><a href="{{route('admin.categories.show', $category->id)}}">Detalles</a></td>
 														</tr>
 													@endforeach
 											</tbody>

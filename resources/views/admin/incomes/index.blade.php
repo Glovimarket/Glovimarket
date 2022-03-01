@@ -1,13 +1,14 @@
 @extends('template')
 
 <!----------- Settings template --------------------->
-@section('titulo','Categorias')
-@section('icon','heart')
+@section('titulo','Ingresos')
+@section('valor', 'asd')
+@section('icon','person')
 
 <!----------- Tabla --------------------->
 @section('main')
 
-									<button data-bs-toggle="modal" data-bs-target="#createModal"><a href="{{route('categories.create')}}">Añadir</a>
+									<button data-bs-toggle="modal" data-bs-target="#createModal"><a href="{{route('admin.incomes.create')}}">Añadir</a>
 											<ion-icon name="chevron-forward-outline"> </ion-icon>
 										</button>
 								</div>
@@ -16,15 +17,23 @@
 										<table id="recent-flex-proyectos-card-body-table">
 											<thead>
 												<tr>
-													<td>Nombre </td>
+													<td>Proveedor </td>
+													<td>Producto</td>
+													<td>Cantidad</td>
+													<td>Valor</td>
+													<td>Fecha</td>
 													<td>Controles</td>
 												</tr>
 											</thead>
 											<tbody>
-													@foreach ($categories as $category)
+													@foreach ($incomes as $income)
 														<tr>
-															<td>{{$category->name}}</td>
-															<td><a href="{{route('categories.show', $category->id)}}">Detalles</a></td>
+															<td>{{$income->users_id}}</td>
+															<td>{{$income->products_id}}</td>
+															<td>{{$income->amount_products}}</td>
+															<td>{{$income->value}}</td>
+															<td>{{$income->date}}</td>
+															<td><a href="{{route('admin.incomes.show', $income->id)}}">Detalles</a></td>
 														</tr>
 													@endforeach
 											</tbody>

@@ -53,7 +53,7 @@ Route::get('/register', function () {
 Route::post('register/store', [RegisterController::class, 'create'])->name('register.store');
 
 
-Route::put('product/storage_file', [ProductsController::class, 'storage_file'])->name('product.storage_file');
+Route::put('admin/product/storage_file', [ProductsController::class, 'storage_file'])->name('admin.product.storage_file');
 
 //========== Rutas para la seccion de los Usuarios========
 

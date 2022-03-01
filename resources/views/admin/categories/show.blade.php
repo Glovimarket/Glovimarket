@@ -16,16 +16,11 @@
 		<section class="main-content">
 			<main>
 			
-				<div class="container-mi-perfil-img">
-				<img src="/img/other/image-victor.jpg" alt="" srcset="">
-				<button>Cambiar imagen</button>
-				</div>
-			
 				<section class=" dashboard-cards-single tittle-main-space">
 					<div class="tittle-main animate fadeInDown one ">
 						<div class="container-mi-perfil">
 							<p>Detalles Personales</p>
-							<form action="{{route('categories.update', $category)}}" method="post">
+							<form action="{{route('admin.categories.update', $category)}}" method="post">
 								@csrf
 								@method('put')
 
@@ -38,7 +33,7 @@
 								<button type="submit"class="mi-perfil-guardar-cambios">Guardar cambios</button>
 							</div>
 							</form>
-							<form action="{{route('categories.destroy', $category)}}" method="post">
+							<form action="{{route('admin.categories.destroy', $category)}}" method="post">
 								@csrf
 								@method('delete')
 								<button type="submit"class="mi-perfil-guardar-cambios">Eliminar Usuario</button>

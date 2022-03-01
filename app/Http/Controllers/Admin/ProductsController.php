@@ -16,13 +16,13 @@ class ProductsController extends Controller
     public function index(){
         $products = Products::all();
 
-        return view('products.index', compact('products'));
+        return view('admin.products.index', compact('products'));
     }
 
     public function create(){
         $categories = Categories::all();
 
-        return view('products.create', compact('categories'));
+        return view('admin.products.create', compact('categories'));
     }
 
     public function show($id){
@@ -30,7 +30,7 @@ class ProductsController extends Controller
         $product = Products::find($id);
         $categories = Categories::all();
 
-        return view('products.show', compact('product', 'categories'));
+        return view('admin.products.show', compact('product', 'categories'));
     }
 
     public function store(Request $request){
@@ -44,12 +44,12 @@ class ProductsController extends Controller
 
         $product->save();
 
-        return redirect()->route('products.index');
+        return redirect()->route('admin.products.index');
     }
 
     public function edit(Products $id)
     {
-        return view('products.edit', compact('id'));
+        return view('admin.products.edit', compact('id'));
     }
 
     public function update(Request $request, Products $product)
@@ -60,7 +60,7 @@ class ProductsController extends Controller
         $product->description = $request->description;
 
         $product->save();
-        return view('products.show', compact('product'));
+        return view('admin.products.show', compact('product'));
     }
 
     public function storage_file(Request $request)
@@ -79,7 +79,7 @@ class ProductsController extends Controller
         $product->url = $request->url;
 
         $product->save();
-        #return view('products.show', compact('product'));
+        #return view('admin.products.show', compact('product'));
 
         return $request;
     }
@@ -89,6 +89,6 @@ class ProductsController extends Controller
     {
         $product->delete();
 
-        return redirect()->route('products.index');
+        return redirect()->route('admin.products.index');
     }
 }

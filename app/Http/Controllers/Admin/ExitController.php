@@ -13,20 +13,20 @@ class ExitController extends Controller
     public function index(){
         $exits = ExitProducts::all();
 
-        return view('exits.index', compact('exits'));
+        return view('admin.exits.index', compact('exits'));
     }
 
     public function create(){
         $exit = ExitProducts::all();
 
-        return view('exits.create', compact('exits'));
+        return view('admin.exits.create', compact('exits'));
     }
 
     public function show($id){
 
         $exit = ExitProducts::find($id);
 
-        return view('exits.mi-perfil', compact('exit'));
+        return view('admin.exits.show', compact('exit'));
     }
 
     public function store(Request $request){
@@ -44,7 +44,7 @@ class ExitController extends Controller
 
     public function edit(ExitProducts $id)
     {
-        return view('exits.edit', compact('id'));
+        return view('admin.exits.edit', compact('id'));
     }
 
     public function update(Request $request, ExitProducts $exit)
@@ -55,7 +55,7 @@ class ExitController extends Controller
         $exit->value = $request->value;
 
         $exit->save();
-        return view('exits.mi-perfil', compact('exit'));
+        return view('admin.exits.show', compact('exit'));
 
         return $exit;
     }

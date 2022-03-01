@@ -24,7 +24,7 @@
 				<div class="container-mi-perfil-img">
 				<img src="{{$product->url}}">
 				
-				<form action="{{route('product.storage_file',  $id)}}" class="" id="" method="post" enctype="multipart/form-data">
+				<form action="{{route('admin.product.storage_file',  $id)}}" class="" id="" method="post" enctype="multipart/form-data">
 					@csrf
 					@method('put')
 					<input type="file" name="url" id="file">
@@ -68,7 +68,7 @@
 								<button type="submit"class="mi-perfil-guardar-cambios">Guardar cambios</button>
 							</div>
 							</form>
-							<form action="{{route('products.destroy', $product)}}" method="post">
+							<form action="{{route('admin.products.destroy', $product)}}" method="post">
 								@csrf
 								@method('delete')
 								<button type="submit"class="mi-perfil-guardar-cambios">Eliminar Usuario</button>

@@ -13,20 +13,20 @@ class IncomeController extends Controller
     public function index(){
         $incomes = Income::all();
 
-        return view('incomes.index', compact('incomes'));
+        return view('admin.incomes.index', compact('incomes'));
     }
 
     public function create(){
         $income = Income::all();
 
-        return view('incomes.create', compact('income'));
+        return view('admin.incomes.create', compact('income'));
     }
 
     public function show($id){
 
         $income = Income::find($id);
 
-        return view('incomes.mi-perfil', compact('income'));
+        return view('admin.incomes.show', compact('income'));
     }
 
     public function store(Request $request){
@@ -45,7 +45,7 @@ class IncomeController extends Controller
 
     public function edit(Income $id)
     {
-        return view('incomes.edit', compact('id'));
+        return view('admin.incomes.edit', compact('id'));
     }
 
     public function update(Request $request, Income $income)
@@ -57,7 +57,7 @@ class IncomeController extends Controller
         $income->date = $request->date;
 
         $income->save();
-        return view('incomes.mi-perfil', compact('income'));
+        return view('admin.incomes.show', compact('income'));
 
         return $income;
     }

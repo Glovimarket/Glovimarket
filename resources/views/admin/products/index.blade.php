@@ -1,34 +1,36 @@
 @extends('template')
 
 <!----------- Settings template --------------------->
-@section('titulo','Usuarios')
-@section('valor', 'asd')
-@section('icon','person')
+@section('titulo','Productos')
+@section('icon','pricetag')
 
 <!----------- Tabla --------------------->
 @section('main')
 
+									<button data-bs-toggle="modal" data-bs-target="#createModal"><a href="{{route('admin.products.create')}}">Añadir</a>
+											<ion-icon name="chevron-forward-outline"> </ion-icon>
+										</button>
 								</div>
 								<div class="recent-flex-proyectos-card-body">
 									<div class="table-responsive">
 										<table id="recent-flex-proyectos-card-body-table">
 											<thead>
 												<tr>
-													<td>Cliente </td>
-													<td>Producto</td>
+													<td>Nombre </td>
 													<td>Cantidad</td>
-													<td>Valor total</td>
+													<td>Valor</td>
+													<td>Descripcion</td>
 													<td>Controles</td>
 												</tr>
 											</thead>
 											<tbody>
-													@foreach ($exits as $exit)
+													@foreach ($products as $product)
 														<tr>
-															<td>{{$exit->users_id}}</td>
-															<td>{{$exit->products_id}}</td>
-															<td>{{$exit->amount_products}}</td>
-															<td>{{$exit->value}}</td>
-															<td><a href="{{route('exits.show', $exit->id)}}">Detalles</a></td>
+															<td>{{$product->name}}</td>
+															<td>{{$product->amount}}</td>
+															<td>{{$product->value}}</td>
+															<td>{{$product->description}}</td>
+															<td><a href="{{route('admin.products.show', $product->id)}}">Detalles</a></td>
 														</tr>
 													@endforeach
 											</tbody>
