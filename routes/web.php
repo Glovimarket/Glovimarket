@@ -49,6 +49,10 @@ Route::get('/register', function () {
 })->name('register'); 
 
 
+Route::get('/showproduct', function () {
+    return view('showproduct');
+})->name('showproduct'); 
+
 
 Route::post('register/store', [RegisterController::class, 'create'])->name('register.store');
 

@@ -7,6 +7,8 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="/style/style.css" />
 	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
@@ -148,13 +150,20 @@
 
    
     @foreach ($products as $product)
-      <article class="card">
+      <article class="card ">
         <div class="card_img">
-         <a href="{{route('products.show', $product->id)}}"> <img src="media/product/Front/a3d9d976830bd65ff461fb766502e28b0a140838.png" alt="" ></a>
+         <a href="{{route('admin.products.show', $product->id)}}"> <img src="media/product/Front/a3d9d976830bd65ff461fb766502e28b0a140838.png" alt="" ></a>
         </div>
+       
+
+
+    
         <div class="card_name">
           <p>{{$product->name}}</p>
         </div>
+        <div class="card_precio">
+              <a href="{{route('showproduct', $product->id)}}"><button type="button" class="addToCartBtn">add to cart</button></a>
+          <div>
         <div class="card_precio">
               <a href="{{route('register')}}" class="card_icon"><ion-icon name="heart-outline"></ion-icon></a>
           <div>
@@ -166,7 +175,6 @@
 													@endforeach
 
       </section>
-
 
 
     <!-- Footer -->
@@ -211,6 +219,61 @@
     <script>
       var scene = document.getElementById('scene')
       var parallaxInstance = new Parallax(scene)
+
     </script>
+    <script>
+      $('.addToCartBtn').click(function (e){
+         var product_id = $(this).closet('.product_data').find('.prod_id').val();
+         var product_qty = $(this).closet('.product_data').find('.qty-input').val();
+
+         alert(product_id);
+         
+         alert(product_qty);
+             
+              
+        });
+      
+      addToCartBtn
+    $(document).ready(function(){
+        $('.decrement-btn').click(function (e){
+            e.preventDefault();
+
+            var inc_value = $('.qty-input').val();
+            var value = parseInt(inc_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if(value < 10)
+            {
+                value++;
+                $('.qty-input').val(value);
+              
+            }
+            alert("nodsvojndp");
+        });
+
+        $('.decrement-btn').click(function (e){
+            e.preventDefault();
+
+            var dec_value = $('.qty-input').val();
+            var value = parseInt(dec_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if(value > 1)
+            {
+                value--;
+                $('.qty-input').val(value);
+
+            }
+        });
+      });
+    </script>
+
+
+<script>
+   function increment() {
+      document.getElementById('demoInput').stepUp();
+   }
+   function decrement() {
+      document.getElementById('demoInput').stepDown();
+   }
+</script>
   </body>
 </html>
