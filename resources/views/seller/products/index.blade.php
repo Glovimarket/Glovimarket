@@ -1,4 +1,4 @@
-@extends('1template')
+@extends('template')
 
 <!----------- Settings template --------------------->
 @section('titulo','Productos')
@@ -7,7 +7,9 @@
 <!----------- Tabla --------------------->
 @section('main')
 
-							
+									<button data-bs-toggle="modal" data-bs-target="#createModal"><a href="{{route('admin.products.create')}}">Añadir</a>
+											<ion-icon name="chevron-forward-outline"> </ion-icon>
+										</button>
 								</div>
 								<div class="recent-flex-proyectos-card-body">
 									<div class="table-responsive">
@@ -28,7 +30,7 @@
 															<td>{{$product->amount}}</td>
 															<td>{{$product->value}}</td>
 															<td>{{$product->description}}</td>
-															<td><a href="{{route('products.show', $product->id)}}">Detalles</a></td>
+															<td><a href="{{route('admin.products.show', $product->id)}}">Detalles</a></td>
 														</tr>
 													@endforeach
 											</tbody>

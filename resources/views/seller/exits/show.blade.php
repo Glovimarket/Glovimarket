@@ -25,48 +25,32 @@
 					<div class="tittle-main animate fadeInDown one ">
 						<div class="container-mi-perfil">
 							<p>Detalles Personales</p>
-							<form action="{{route('user.update', $user)}}" method="post">
+							<form action="{{route('admin.exits.update', $exit)}}" method="post">
 								@csrf
 								@method('put')
 
 								
 							<ul>
-								<small>Primer nombre</small>
-								<li><input name="first_name" type="text" value="{{$user->first_name}}"></li>
+								<small>Nombre del Cliente</small>
+								<li><input name="users_id" type="text" value="{{$exit->users_id}}"></li>
 							</ul>
 							<ul>
-								<small>Segundo nombre</small>
-								<li><input name="second_name" type="text" value="{{$user->second_name}}"></li>
+								<small>Producto Comprado</small>
+								<li><input name="products_id" type="text" value="{{$exit->products_id}}"></li>
 							</ul>
 							<ul>
-								<small>Primer Apellido</small>
-								<li><input name="last_name" type="text" value="{{$user->last_name}}"></li>
+								<small>Cantidad del Producto</small>
+								<li><input name="amount_products" type="text" value="{{$exit->amount_products}}"></li>
 							</ul>
 							<ul>
-								<small>Segundo Apellido</small>
-								<li><input name="second_surname" type="text" value="{{$user->second_surname}}"></li>
-							</ul>
-							<ul>
-								<small>Telefono </small>
-								<li><input name="telephone" type="tel" value="{{$user->telephone}}"></li>
-							</ul>
-							<ul>
-								<small>Direccion</small>
-								<li><input name="direction" type="tel" value="{{$user->direction}}"></li>
-							</ul>
-							<ul>
-								<small>Email</small>
-								<li><input name="email" type="email" value="{{$user->email}}"></li>
-							</ul>
-							<ul style="display: none;">
-								<small>password</small>
-								<li><input name="password" type="password" value="{{$user->password}}"></li>
+								<small>Valor del Producto</small>
+								<li><input name="value" type="text" value="{{$exit->value}}"></li>
 							</ul>
 							<div class="container-mi-perfil-img">
 								<button type="submit"class="mi-perfil-guardar-cambios">Guardar cambios</button>
 							</div>
 							</form>
-							<form action="{{route('user.destroy', $user)}}" method="post">
+							<form action="{{route('admin.exits.destroy', $exit)}}" method="post">
 								@csrf
 								@method('delete')
 								<button type="submit"class="mi-perfil-guardar-cambios">Eliminar Usuario</button>

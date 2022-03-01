@@ -1,7 +1,7 @@
-@extends('1template')
+@extends('template')
 
 <!----------- Settings template --------------------->
-@section('titulo','Usuarios')
+@section('titulo','Facturas')
 @section('valor', 'asd')
 @section('icon','person')
 
@@ -28,7 +28,7 @@
 															<td>{{$exit->products_id}}</td>
 															<td>{{$exit->amount_products}}</td>
 															<td>{{$exit->value}}</td>
-															<td><a href="{{route('exits.show', $exit->id)}}">Detalles</a></td>
+															<td><a href="{{route('admin.exits.show', $exit->id)}}">Detalles</a></td>
 														</tr>
 													@endforeach
 											</tbody>

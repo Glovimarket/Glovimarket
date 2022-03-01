@@ -1,13 +1,12 @@
 @extends('template')
 
 <!----------- Settings template --------------------->
-@section('titulo','ojjoij	')
-@section('icon','heart')
+@section('titulo','Usuarios')
+@section('valor', 'asd')
+@section('icon','person')
 
 <!----------- Tabla --------------------->
 @section('main')
-
-								
 								</div>
 								<div class="recent-flex-proyectos-card-body">
 									<div class="table-responsive">
@@ -15,14 +14,12 @@
 											<thead>
 												<tr>
 													<td>Nombre </td>
-													<td>Controles</td>
 												</tr>
 											</thead>
 											<tbody>
-													@foreach ($categories as $category)
+													@foreach ($roles as $rol)
 														<tr>
-															<td>{{$category->name}}</td>
-															<td><a href="{{route('categories.show', $category->id)}}">Detalles</a></td>
+															<td>{{$rol->name}}</td>
 														</tr>
 													@endforeach
 											</tbody>

@@ -1,13 +1,16 @@
-@extends('1template')
+@extends('template')
 
 <!----------- Settings template --------------------->
 @section('titulo','Ingresos')
-@section('valor', 'askjjjjjd')
+@section('valor', 'asd')
 @section('icon','person')
 
 <!----------- Tabla --------------------->
 @section('main')
 
+									<button data-bs-toggle="modal" data-bs-target="#createModal"><a href="{{route('admin.incomes.create')}}">Añadir</a>
+											<ion-icon name="chevron-forward-outline"> </ion-icon>
+										</button>
 								</div>
 								<div class="recent-flex-proyectos-card-body">
 									<div class="table-responsive">
@@ -30,7 +33,7 @@
 															<td>{{$income->amount_products}}</td>
 															<td>{{$income->value}}</td>
 															<td>{{$income->date}}</td>
-															<td><a href="{{route('incomes.show', $income->id)}}">Detalles</a></td>
+															<td><a href="{{route('admin.incomes.show', $income->id)}}">Detalles</a></td>
 														</tr>
 													@endforeach
 											</tbody>

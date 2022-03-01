@@ -1,14 +1,13 @@
 @extends('template')
 
 <!----------- Settings template --------------------->
-@section('titulo','Proveedores')
-@section('valor', '')
-@section('icon','person')
+@section('titulo','Categorias')
+@section('icon','heart')
 
 <!----------- Tabla --------------------->
 @section('main')
 
-									<button data-bs-toggle="modal" data-bs-target="#createModal"><a href="{{route('suppliers.create')}}">Añadir</a>
+									<button data-bs-toggle="modal" data-bs-target="#createModal"><a href="{{route('admin.categories.create')}}">Añadir</a>
 											<ion-icon name="chevron-forward-outline"> </ion-icon>
 										</button>
 								</div>
@@ -18,20 +17,14 @@
 											<thead>
 												<tr>
 													<td>Nombre </td>
-													<td>Apellido</td>
-													<td>Telefono</td>
-													<td>Email</td>
 													<td>Controles</td>
 												</tr>
 											</thead>
 											<tbody>
-													@foreach ($suppliers as $user)
+													@foreach ($categories as $category)
 														<tr>
-															<td>{{$user->name}}</td>
-															<td>{{$user->name_supplier}}</td>
-															<td>{{$user->telephone}}</td>
-															<td>{{$user->email}}</td>
-															<td><a href="{{route('user.show', $user->id)}}">Detalles</a></td>
+															<td>{{$category->name}}</td>
+															<td><a href="{{route('admin.categories.show', $category->id)}}">Detalles</a></td>
 														</tr>
 													@endforeach
 											</tbody>

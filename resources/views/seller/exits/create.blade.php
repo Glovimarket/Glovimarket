@@ -1,11 +1,11 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Users')
+@section('title', 'Facturas')
 
 @section('content')
-    <h1>Bienvenido a la creacion de Productos</h1>
-    <a href="{{route('products.index')}}">lista de productos</a>
-    <form action="{{route('products.store')}}" method="post">
+    <h1>Bienvenido a la creacion de Facturas</h1>
+    <a href="{{route('admin.exits.index')}}">lista de productos</a>
+    <form action="{{route('admin.exits.store')}}" method="post">
 
       @csrf
       <label for="">Nombre del Producto</label>
