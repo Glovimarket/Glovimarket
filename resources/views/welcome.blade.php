@@ -152,7 +152,7 @@
     @foreach ($products as $product)
       <article class="card ">
         <div class="card_img">
-         <a href="{{route('admin.products.show', $product->id)}}"> <img src="media/product/Front/a3d9d976830bd65ff461fb766502e28b0a140838.png" alt="" ></a>
+         <a href="{{route('admin.products.show', $product->id)}}"> <img src="{{$product->url}}" alt="" ></a>
         </div>
        
 
@@ -173,7 +173,7 @@
                         <input type="hidden" value="{{ $product->id }}" name="id">
                         <input type="hidden" value="{{ $product->name }}" name="name">
                         <input type="hidden" value="{{ $product->price }}" name="price">
-                        <input type="hidden" value="{{ $product->image }}"  name="image">
+                        <input type="hidden" value="{{ $product->url }}"  name="image">
                         <input type="hidden" value="1" name="quantity">
                         <div> <button class="btn-vaciar" style="
                                       color: inherit;
