@@ -50,7 +50,7 @@
                                       @csrf
                                       <input type="hidden" name="id" value="{{ $item->id}}" >
                                     <input type="number" name="quantity" value="{{ $item->quantity }}" style="width:100px" 
-                                    class="w-6 text-center bg-gray-300 btn-vaciar" />
+                                    class="w-6 text-center bg-gray-300 btn-vaciar" min="1" max="{{$item->quantity}}"  />
                                     <button type="submit" class="px-2 pb-2 ml-2 text-white bg-blue-500">Actualizar</button>
                                     </form>
                                   </div>
