@@ -142,6 +142,7 @@ return [
          * Laravel Framework Service Providers...
          */
         Illuminate\Auth\AuthServiceProvider::class,
+        Darryldecode\Cart\CartServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
         Illuminate\Cache\CacheServiceProvider::class,
@@ -191,9 +192,10 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
+    'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
 
     'aliases' => Facade::defaultAliases()->merge([
-        // ...
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class
     ])->toArray(),
 
 ];

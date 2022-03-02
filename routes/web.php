@@ -21,6 +21,10 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use App\Http\Controllers\Auth\LoginController;
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -114,3 +118,10 @@ Route::resource('seller/seller_products', SellerProductsController::class);
 
 Route::resource('seller/seller_exit', SellerExitController::class);    
 */
+
+Route::get('ls', [ProductController::class, 'productList'])->name('products.list');
+Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
+Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
+Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
+Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');

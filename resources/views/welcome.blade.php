@@ -156,21 +156,35 @@
         </div>
        
 
-
     
         <div class="card_name">
           <p>{{$product->name}}</p>
         </div>
-        <div class="card_precio">
-              <a href="{{route('showproduct', $product->id)}}"><button type="button" class="addToCartBtn">add to cart</button></a>
-          <div>
+ 
         <div class="card_precio">
               <a href="{{route('register')}}" class="card_icon"><ion-icon name="heart-outline"></ion-icon></a>
           <div>
-            <span class="card_precioA">${{$product->value}}.000</span>
+            <span class="card_precioA">${{$product->price}}.000</span>
           </div>
           <a href="{{route('register')}}" class="card_icon"><ion-icon name="cart-outline"></ion-icon></a>
         </div>
+        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" value="{{ $product->id }}" name="id">
+                        <input type="hidden" value="{{ $product->name }}" name="name">
+                        <input type="hidden" value="{{ $product->price }}" name="price">
+                        <input type="hidden" value="{{ $product->image }}"  name="image">
+                        <input type="hidden" value="1" name="quantity">
+                        <div> <button class="btn-vaciar" style="
+                                      color: inherit;
+                                      border: none;
+                                      padding: .8rem;
+                                      font: inherit;
+                                      cursor: pointer;
+                                      outline: inherit;" >
+                                      <ion-icon name="cart-outline"></ion-icon>Añadir al carrito</button></div>
+                        <!-- <button class="px-4 py-2 text-white bg-blue-800 rounded" >Add To Cart</button> -->
+                    </form>
       </article>
 													@endforeach
 
