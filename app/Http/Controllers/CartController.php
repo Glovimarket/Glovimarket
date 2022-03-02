@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Products;
 use App\Http\Controllers\Admin\ProductsController;
+use Illuminate\Support\Collection;
 
 class CartController extends Controller
 {
@@ -66,5 +67,15 @@ class CartController extends Controller
         session()->flash('success', 'Todos Los productos se han removido correctamente !');
 
         return redirect()->route('cart.list');
+    }
+
+    public function factura(Request $request){
+
+        $resultado = str_split($request->resultado, 2);
+        $pattern = "/[-]/";
+        $components = preg_split($pattern, $request->resultado);
+        return $components;
+
+        //Solo necesitaria parsear el arreglo de la cadena de texto a enteros, realizar la consulta de cada uno de los productos y registrar los en la tabla de facturas.
     }
 }

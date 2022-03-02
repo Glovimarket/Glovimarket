@@ -50,7 +50,7 @@
                                       @csrf
                                       <input type="hidden" name="id" value="{{ $item->id}}" >
                                     <input type="number" name="quantity" value="{{ $item->quantity }}" style="width:100px" 
-                                    class="w-6 text-center bg-gray-300 btn-vaciar" min="1" max="{{$item->quantity}}"  />
+                                    class="w-6 text-center bg-gray-300 btn-vaciar" min="1"  />
                                     <button type="submit" class="px-2 pb-2 ml-2 text-white bg-blue-500">Actualizar</button>
                                     </form>
                                   </div>
@@ -81,6 +81,25 @@
                           <form action="{{ route('cart.clear') }}" method="POST">
                             @csrf
                             <button class="px-6 py-2 text-red-800 bg-red-300 btn-vaciar">Vaciar el carrito</button>
+                          </form>
+                          <form action="{{ route('cart.factura') }}" method="POST">
+                            @csrf
+                            <div class="datos">
+                            <input type="text" name="total" value="{{Cart::getTotal()}}">
+                            <?php
+                            $producto_seleccionado = "";
+                            ?>
+                            @foreach ($cartItems as $item)
+                            
+                              <input type="text" name="id{{$item->id}}" value="{{$item->id}}">
+                              <?php
+                              $tmp = $item->id;
+                              $producto_seleccionado =  $producto_seleccionado.strval($tmp)."-"; 
+                              ?>
+                              @endforeach
+                              <input type="text" name="resultado" value="<?php echo $producto_seleccionado; ?>"
+                            </div>
+                            <button class="px-6 py-2 text-red-800 bg-red-300 btn-vaciar">Finalizar Compra</button>
                           </form>
                         </div>
 
