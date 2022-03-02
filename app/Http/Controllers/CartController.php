@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Products;
+use App\Http\Controllers\Admin\ProductsController;
 
 class CartController extends Controller
 {
@@ -10,7 +12,7 @@ class CartController extends Controller
     {
         $cartItems = \Cart::getContent();
         // dd($cartItems);
-        return view('cart', compact('cartItems'));
+       return view('cart', compact('cartItems'));
     }
 
 
@@ -26,6 +28,8 @@ class CartController extends Controller
             )
         ]);
         session()->flash('success', 'Producto agregado al carrito !');
+
+        $product = Products::find($request->id);
 
         return redirect()->route('cart.list');
     }

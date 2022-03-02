@@ -49,7 +49,7 @@
 							</ul>
 							<ul>
 								<small>Valor del Producto</small>
-								<li><input name="value" type="text" value="{{$product->value}}"></li>
+								<li><input name="price" type="text" value="{{$product->value}}"></li>
 							</ul>
 							
 							<ul>

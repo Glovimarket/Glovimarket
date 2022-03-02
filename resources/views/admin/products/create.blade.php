@@ -31,7 +31,7 @@
 							</ul>
 							<ul>
 								<small>Valor del Producto</small>
-								<li><input name="value" type="text" ></li>
+								<li><input name="price" type="text" ></li>
 							</ul>
               <ul>
 								<small>Categoria del Producto</small>

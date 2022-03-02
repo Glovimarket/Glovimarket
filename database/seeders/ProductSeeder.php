@@ -12,7 +12,7 @@ class ProductSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    /*public function run()
     {
         Product::create([
             'name' => 'Watch',
@@ -38,6 +38,6 @@ class ProductSeeder extends Seeder
             'value' => 100,
             'description' => 'Cold Coffee',
             'url' => 'https://images.unsplash.com/photo-1568649929103-28ffbefaca1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80'
-        ]);
+        ]);*/
     }
 }

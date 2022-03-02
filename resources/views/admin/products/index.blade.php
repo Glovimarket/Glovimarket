@@ -28,7 +28,7 @@
 														<tr>
 															<td>{{$product->name}}</td>
 															<td>{{$product->amount}}</td>
-															<td>{{$product->value}}</td>
+															<td>{{$product->price}}</td>
 															<td>{{$product->description}}</td>
 															<td><a href="{{route('admin.products.show', $product->id)}}">Detalles</a></td>
 														</tr>
