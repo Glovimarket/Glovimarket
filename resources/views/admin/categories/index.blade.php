@@ -16,8 +16,8 @@
 										<table id="recent-flex-proyectos-card-body-table">
 											<thead>
 												<tr>
-													<td>Nombre </td>
-													<td>Controles</td>
+													<th>Nombre </th>
+													<th>Controles</th>
 												</tr>
 											</thead>
 											<tbody>

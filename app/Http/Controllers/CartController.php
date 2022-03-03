@@ -71,10 +71,33 @@ class CartController extends Controller
 
     public function factura(Request $request){
 
-        $resultado = str_split($request->resultado, 2);
+        $resultado = str_split($request->resultado_ids, 2);
         $pattern = "/[-]/";
-        $components = preg_split($pattern, $request->resultado);
-        return $components;
+        $components = preg_split($pattern, $request->resultado_ids);
+        $resultado2 = str_split($request->resultado_cantidad, 2);
+        $pattern = "/[-]/";
+        $components2 = preg_split($pattern, $request->resultado_cantidad);
+        $product = Products::find($components);
+        /*$integer = [];
+        $integer[0] = intval($components2[0]);
+        $product[0]->price = $integer[0];*/
+        echo $product;
+        $contador = 0;
+        /*foreach ($components as $x) {
+            $contador = $contador + 1;
+            }
+            $restante = $contador -1;
+        $contador = $contador - $restante;
+        while ($contador > 1) {
+            $integer = [];
+        $integer[$contador] = intval($components2[$contador]);
+        $product[$contador]->price = $integer[$contador];
+        print_r($product[$contador]);
+        print_r($integer[$contador]);
+        }*/
+
+        
+
 
         //Solo necesitaria parsear el arreglo de la cadena de texto a enteros, realizar la consulta de cada uno de los productos y registrar los en la tabla de facturas.
     }

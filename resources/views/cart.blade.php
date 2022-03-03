@@ -59,6 +59,7 @@
                               <td class="hidden text-right md:table-cell">
                                 <span class="text-sm font-medium lg:text-base text-black">
                                   <p style="color:black">  ${{ $item->price }}</p>
+                                  
                                 </span>
                               </td>
                               <td class="hidden text-right md:table-cell">
@@ -88,16 +89,19 @@
                             <input type="text" name="total" value="{{Cart::getTotal()}}">
                             <?php
                             $producto_seleccionado = "";
+                            $total_seleccionado = "";
+                            $cantidad_seleccionado = "";
                             ?>
                             @foreach ($cartItems as $item)
-                            
-                              <input type="text" name="id{{$item->id}}" value="{{$item->id}}">
                               <?php
-                              $tmp = $item->id;
-                              $producto_seleccionado =  $producto_seleccionado.strval($tmp)."-"; 
+                              $tmp_ids = $item->id;
+                              $tmp_cantidad = $item->quantity;
+                              $producto_seleccionado =  $producto_seleccionado.strval($tmp_ids)."-";
+                              $cantidad_seleccionado =  $cantidad_seleccionado.strval($tmp_cantidad)."-"; 
                               ?>
                               @endforeach
-                              <input type="text" name="resultado" value="<?php echo $producto_seleccionado; ?>"
+                              <input type="text" name="resultado_ids" value="<?php echo $producto_seleccionado; ?>">
+                              <input type="text" name="resultado_cantidad" value="<?php echo $cantidad_seleccionado; ?>">
                             </div>
                             <button class="px-6 py-2 text-red-800 bg-red-300 btn-vaciar">Finalizar Compra</button>
                           </form>

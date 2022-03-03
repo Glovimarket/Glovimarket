@@ -14,11 +14,11 @@
 										<table id="recent-flex-proyectos-card-body-table">
 											<thead>
 												<tr>
-													<td>Cliente </td>
-													<td>Producto</td>
-													<td>Cantidad</td>
-													<td>Valor total</td>
-													<td>Controles</td>
+													<th>Cliente </th>
+													<th>Producto</th>
+													<th>Cantidad</th>
+													<th>Valor total</th>
+													<th>Controles</th>
 												</tr>
 											</thead>
 											<tbody>
