@@ -20,9 +20,14 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\VerificationController;
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\HomeController;
 
 
 
@@ -56,7 +61,6 @@ Route::get('/register', function () {
 Route::get('/showproduct', function () {
     return view('showproduct');
 })->name('showproduct'); 
-
 
 Route::post('register/store', [RegisterController::class, 'create'])->name('register.store');
 
@@ -127,3 +131,17 @@ Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove'
 Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 
 Route::post('cart/factura', [CartController::class, 'factura'])->name('cart.factura');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+
+
+
+Route::get('/dashboard', function () {
+    return redirect('/');
+});

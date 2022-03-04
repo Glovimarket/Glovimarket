@@ -217,7 +217,7 @@
           <div class="usuario caja">
             <h2>Mi perfil</h2>
             <ul>
-           <li> <a href="">Mi cuenta</a></li>
+           <li> <a href="{{route('login')}}">Mi cuenta</a></li>
              <li>  <a href="">Carrito</a></li>
              <li>  <a href="">Ayuda</a></li>
              </ul>

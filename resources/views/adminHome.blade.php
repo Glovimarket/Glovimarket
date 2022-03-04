@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Dashboard</div>
                 <div class="card-body">
-                    You are normal user.
+                    You are Admin.
                 </div>
             </div>
         </div>

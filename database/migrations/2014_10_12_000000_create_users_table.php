@@ -13,22 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
+       
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('first_name');
-            $table->string('second_name');
-            $table->string('last_name');
-            $table->string('second_surname');
-            $table->unsignedInteger('id_rol')->nullable(); 
-            $table->foreign('id_rol')->references('id')->on('rol');
-            $table->integer('telephone');
-            $table->string('direction');
-            $table->string('email')->unique();
+            $table->id();
+            $table->string('name');
+            $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
+            $table->boolean('is_admin')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->foreignId('current_team_id')->nullable();
-            $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
     }
