@@ -2,7 +2,7 @@
 
 <!----------- Settings template --------------------->
 @section('titulo','Usuarios')
-@section('valor', 'asd')
+@section('valor', '22')
 @section('icon','person')
 
 <!----------- Tabla --------------------->
@@ -18,19 +18,24 @@
 											<thead>
 												<tr>
 													<td>Nombre </td>
-													<td>Apellido</td>
-													<td>Telefono</td>
-													<td>Email</td>
-													<td>Controles</td>
+													<td>Correo electronico</td>
+													<td>Rol</td>
+													<td>Fecha de creacion</td>
 												</tr>
 											</thead>
 											<tbody>
 													@foreach ($users as $user)
 														<tr>
-															<td>{{$user->first_name}}</td>
-															<td>{{$user->last_name}}</td>
-															<td>{{$user->telephone}}</td>
+															<td>{{$user->name}}</td>
 															<td>{{$user->email}}</td>
+															<td>
+																@if(auth()->user()->is_admin == 1)
+																		Administrador
+																@else
+																		Usuario
+																@endif
+															</td>
+															<td>{{$user->updated_at}}</td>
 															<td><a href="{{route('admin.users.show', $user->id)}}">Detalles</a></td>
 														</tr>
 													@endforeach

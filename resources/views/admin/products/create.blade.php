@@ -23,29 +23,29 @@
 								
 							<ul>
 								<small>Nombre del Producto</small>
-								<li><input name="name" type="text" ></li>
+								<li><input name="name" type="text"required ></li>
 							</ul>
 							<ul>
 								<small>Cantidad Existentes</small>
-								<li><input name="amount" type="text" ></li>
+								<li><input name="amount" type="number" required ></li>
 							</ul>
 							<ul>
 								<small>Valor del Producto</small>
-								<li><input name="price" type="text" ></li>
+								<li><input name="price" type="number" required></li>
 							</ul>
               <ul>
 								<small>Categoria del Producto</small>
 								<li>
                   <select name="categories_id">
                     @foreach ($categories as $category)
-                      <option value="{{$category->id}}">{{$category->name}}</option>
+                      <option required value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
                 </select>
               </li>
 							</ul>
 							<ul>
 								<small>Descripcion del Producto</small>
-								<li><input name="description" type="text" ></li>
+								<li><input name="description" type="text"required ></li>
 							</ul>
 							<div class="container-mi-perfil-img">
 								<button type="submit"class="mi-perfil-guardar-cambios">Guardar cambios</button>

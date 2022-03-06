@@ -24,7 +24,8 @@
 	<script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
 	<script src = " https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
-	<script src="/js/MainSweetAlert.js"></script>
+	<script src="/js/MainSweetAlert.js"></script><var></var>
+	@include('sweetalert::alert')
 	@yield('css')
 	<title>@yield('titulo')</title>
 	<style>

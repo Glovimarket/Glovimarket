@@ -304,6 +304,9 @@ header .iconosH a:hover {
   padding-top: 2rem;
   padding-bottom: 2rem;
   margin-top: 2rem;
+  position: ;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer h2 {
@@ -325,6 +328,9 @@ header .iconosH a:hover {
 }
 
 @media (min-width: 768px) {
+  .footer{
+    position: absolute;
+  }
   .footer .contenedor {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -591,6 +597,7 @@ article:nth-child(9) {
 }
 
 .contenidoH .buttonH {
+
   background-color: #f2d06e;
   color: #ffffff;
   display: block;
@@ -605,11 +612,13 @@ article:nth-child(9) {
   margin-top: 3rem;
   font-size: 1.2rem;
   color: #3f2f32;
+  transition:  all 2s ease-in;
 }
 
 .contenidoH .buttonH:hover {
   background: -webkit-gradient(linear, left top, right top, from(#f2d06e), to(#ffbf00));
   background: linear-gradient(90deg, #f2d06e 0%, #ffbf00 100%);
+  
 }
 
 .contenidoH .buttonH:active {
@@ -1784,8 +1793,8 @@ body {
   }
 }
 
-/*=== Trigger  ===*/
-/*=== .animate {
+/* === Trigger  === */
+ .animate { 
   animation-duration: 0.8s;
   animation-fill-mode: both;
 }
@@ -2159,5 +2168,14 @@ td img {
   padding: 1rem;
   border: 1px solid #3f2f32;
   border-radius: 18px;
+}
+
+
+#quantitycart{
+  cursor: default;
+  position: absolute;
+  margin: 0 .3rem;
+  padding: 0;
+  font-size: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

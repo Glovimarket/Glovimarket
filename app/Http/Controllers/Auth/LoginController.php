@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
    
 class LoginController extends Controller
 {
@@ -45,6 +46,7 @@ class LoginController extends Controller
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required',
+
         ]);
    
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))

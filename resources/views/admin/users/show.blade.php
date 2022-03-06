@@ -31,10 +31,21 @@
 
 								
 							<ul>
-								<small>Primer nombre</small>
-								<li><input name="first_name" type="text" value="{{$user->first_name}}"></li>
+								<small>Nombre</small>
+								<li><input name="first_name" type="text" value="{{$user->name}}"></li>
 							</ul>
-							<ul>
+							<ul >
+								<small>Id</small>
+								<li><input name="id" type="text" value="{{$user->id}}"></li>
+							</ul>
+							<ul >
+								<small>Rol</small>
+							
+								<li>
+									<input name="is_admin" type="text" value="@if(auth()->user()->is_admin == 1)Administrador @endif">
+									</li>
+							</ul>
+							<!-- <ul>
 								<small>Segundo nombre</small>
 								<li><input name="second_name" type="text" value="{{$user->second_name}}"></li>
 							</ul>
@@ -53,14 +64,16 @@
 							<ul>
 								<small>Direccion</small>
 								<li><input name="direction" type="tel" value="{{$user->direction}}"></li>
+							</ul> -->
+						
+							<ul >
+								<small>password</small>
+								<li><input name="password" type="password" value="{{$user->password}}"></li>
 							</ul>
+
 							<ul>
 								<small>Email</small>
 								<li><input name="email" type="email" value="{{$user->email}}"></li>
-							</ul>
-							<ul style="display: none;">
-								<small>password</small>
-								<li><input name="password" type="password" value="{{$user->password}}"></li>
 							</ul>
 							<div class="container-mi-perfil-img">
 								<button type="submit"class="mi-perfil-guardar-cambios">Guardar cambios</button>

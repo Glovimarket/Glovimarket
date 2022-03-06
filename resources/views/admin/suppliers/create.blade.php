@@ -23,26 +23,26 @@
 								
 							<ul>
 								<small>Nombre de la Empresa</small>
-								<li><input name="name" type="text" ></li>
+								<li><input name="name" type="text" required></li>
 							</ul>
 							<ul>
 								<small>Nombre de Contacto</small>
-								<li><input name="name_supplier" type="text" ></li>
+								<li><input name="name_supplier" type="text" required></li>
 							</ul>
 							<ul>
 								<small>Telefono de Contacto</small>
-								<li><input name="telephone" type="number" ></li>
+								<li><input name="telephone" type="number"required ></li>
 							</ul>
 							<ul>
 								<small>Correo de Contacto</small>
-								<li><input name="email" type="email" ></li>
+								<li><input name="email" type="email" required></li>
 							</ul>
               <ul>
 								<small>Producto del proveedor</small>
 								<li>
                   <select name="products_id">
                     @foreach ($categories as $category)
-                      <option value="{{$category->id}}">{{$category->name}}</option>
+                      <option value="{{$category->id}}"required>{{$category->name}}</option>
                     @endforeach
                 </select>
               </li>

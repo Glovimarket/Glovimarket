@@ -23,7 +23,7 @@
 								
 							<ul>
 								<small>Primer Nombre</small>
-								<li><input name="first_name" type="text" ></li>
+								<li><input name="name" type="text" required></li>
 							</ul>
 							<ul>
 								<small>Segundo Nombre</small>
@@ -47,11 +47,11 @@
 							</ul>
 							<ul>
 								<small>Correo de Contacto</small>
-								<li><input name="email" type="email" ></li>
+								<li><input name="email" type="email" required></li>
 							</ul>
 							<ul>
 								<small>Crea una contraseña</small>
-								<li><input name="password" type="password" ></li>
+								<li><input name="password" type="password" required></li>
 							</ul>
 							<div class="container-mi-perfil-img">
 								<button type="submit"class="mi-perfil-guardar-cambios">Guardar cambios</button>

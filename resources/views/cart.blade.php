@@ -2,6 +2,7 @@
 
 
 @section('content')
+$handle
           <main class="my-8 space"style="padding-top:5rem; color:black">
             <div class="container px-6 mx-auto">
                 <div class="flex justify-center my-6">

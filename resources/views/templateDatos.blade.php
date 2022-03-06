@@ -19,6 +19,7 @@
 	<script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
 	<script src = " https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
 	<script src="/js/MainSweetAlert.js"></script>
+	@include('sweetalert::alert')
 	@yield('css')
 	<title>@yield('titulo')</title>
 	<style>
@@ -76,6 +77,7 @@
 					<ion-icon name="person-outline"> </ion-icon> <span class="sidebar-nav-link-text">Proveedores</span> </a>
 			</li>
 			<li>
+				
 				<a href="" class="sidebar-nav-link">
 					<ion-icon name="log-out-outline"> </ion-icon> <span class="sidebar-nav-link-text">Salir</span> </a>
 			</li>

@@ -14,6 +14,7 @@
 	<link rel="manifest" href="/site.webmanifest">
 	<script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
+  @yield('header')
 	<title>@yield('titulo')</title>
 </head>
 <body>
@@ -30,46 +31,92 @@
       <a href="">Inicio</a>
       <a href="">Productos</a>
       <a href="">Destacados</a>
+
     </nav>
     <div class="iconosH">
+
       <div class="search">
         <input type="text" placeholder="Escribe para buscar!" class="bar-search">
         <a href="/productos" class="bar-button ">
           <ion-icon name="search-outline"></ion-icon>
         </a>
+ 
       </div>
-      <a href="Login">
+      <div class="carrito">
+      <a href="{{route('login')}}">
         <ion-icon name="person-outline"></ion-icon>
       </a>
- 
 
-      <a href="Favoritos">
+         <div class="contenidoC hide ">
+           <div class="sidebar-nav-link" style="background:#F25270;
+           padding:1rem;
+           display:flex;
+           flex-wrap:no-wrap
+           justify-content: space-around;
+           border-radius:13px;
+           color:white;
+        ">
+
+           <div>
+         <a class="bar-button ">
+          <ion-icon name="person-outline"></ion-icon>
+        </a>
+        </div>
+     
+          {{--
+
+      
+        <!-- if(Auth::check()){
+          <h1>SOMEE</h1>
+
+     
+
+            <h2 style="color:white">Hola {{ Auth::user()->name }}!</p>
+          }
+        } -->
+           
+    
+            <!-- @if(auth()->user()->is_admin == 1){
+            "Administrador"
+      
+            @endif -->
+        <!-- } -->
+        --}}
+              <div>
+        <a class="bar-button ">
+          <ion-icon name="log-outline"></ion-icon>
+        </a>
+        </div>
+         <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+      
+                                    </div> 
+        </div> 
+        </div>
+      
+
+      <a href="/favoritos">
         <ion-icon name="heart-outline"></ion-icon>
       </a>
-
+  
       <div class="carrito">
+        <div>
         <a href="">
           <ion-icon name="cart-outline"></ion-icon>
         </a>
-        <div class="contenidoC hide">
-          <table id="lista-carrito">
-            
-            <tbody>
-              <tr>
-                <td>
-                  
-           <img src="/img/product/Front/0dce948c039d816eb55501ea0b481ff42e0f5340.png" alt="" >
-                </td>
-                <td>Gafas Bottle moma</td>
-              </tr>
-            </tbody>
-          </table>
-           <span>$755.000</span>
-          <a href="carrito" class="btn-vaciar">Pagar</a>
-        <img src="/" alt="" srcset="">
-      
-               
+        <a id='quantitycart' href="">
+        {{ Cart::getTotalQuantity()}}
+        </a>  
         </div>
+      
+     
       </div>
     </div>
 </header>
@@ -83,7 +130,7 @@
           <div class="Nosotros caja">
             <h2>Glovimarket</h2> 
             <ul>
-            <li><a href="Quienes-somos">Quienes somos?</a></li>
+            <li><a href="https://github.com/Glovimarket">Quienes somos?</a></li>
            
             <li><a href="FAQ">FAQ</a></li>
             
@@ -108,15 +155,15 @@
               </a>
             </li>
              <li> <a href=""><ion-icon name="logo-github"></ion-icon></a>
-            <a href=""> <span>GitHub</span></a>
+            <a href="https://github.com/Glovimarket"> <span>GitHub</span></a>
              </li>
              </ul>
           </div>
           <div class="usuario caja">
             <h2>Mi perfil</h2>
             <ul>
-            <li> <a href="/mi-perfilCL">Mi cuenta</a></li>
-             <li>  <a href="/carrito">Carrito</a></li>
+            <li> <a href="{{ route('login') }}">Mi cuenta</a></li>
+             <li>  <a href="/">Carrito</a></li>
              </ul>
           </div>
         </div>
@@ -124,6 +171,8 @@
 
 
 		<script src="/js/script.js"></script>
+    	
+@yield('script')
 		</body>
 
 </html>
