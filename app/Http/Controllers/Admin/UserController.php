@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Rol;
 
 class UserController extends Controller
 {
@@ -25,8 +26,9 @@ class UserController extends Controller
     public function show($id){
 
         $user = User::find($id);
+        $rols = Rol::all();
 
-        return view('admin.users.show', compact('user'));
+        return view('admin.users.show', compact('user', 'rols'));
     }
 
     public function store(Request $request){
@@ -46,7 +48,7 @@ class UserController extends Controller
     {
         $user->update($request->all());
 
-        return view('admin.users.show', compact('user'));
+        return redirect()->route('admin.users.index');
     }
 
     public function destroy(User $user)

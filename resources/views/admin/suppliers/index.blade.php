@@ -17,15 +17,15 @@
 										<table id="recent-flex-proyectos-card-body-table">
 											<thead>
 												<tr>
-													<td>Nombre </td>
-													<td>Apellido</td>
+													<td>Empresa </td>
+													<td>Nombre de Contacto</td>
 													<td>Telefono</td>
 													<td>Email</td>
 													<td>Controles</td>
 												</tr>
 											</thead>
 											<tbody>
-													@foreach ($suppliers as $user)
+													@foreach ($supplier as $user)
 														<tr>
 															<td>{{$user->name}}</td>
 															<td>{{$user->name_supplier}}</td>

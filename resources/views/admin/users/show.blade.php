@@ -32,18 +32,17 @@
 								
 							<ul>
 								<small>Nombre</small>
-								<li><input name="first_name" type="text" value="{{$user->name}}"></li>
+								<li><input name="name" type="text" value="{{$user->name}}"></li>
 							</ul>
-							<ul >
-								<small>Id</small>
-								<li><input name="id" type="text" value="{{$user->id}}"></li>
-							</ul>
-							<ul >
-								<small>Rol</small>
-							
+							<ul>
+								<small>Rol del usuario</small>
 								<li>
-									<input name="is_admin" type="text" value="@if(auth()->user()->is_admin == 1)Administrador @endif">
-									</li>
+									<select name="is_admin">
+										@foreach ($rols as $rol)
+										<option required value="{{$rol->id}}">{{$rol->name}}</option>
+										@endforeach
+									</select>
+								  </li>
 							</ul>
 							<!-- <ul>
 								<small>Segundo nombre</small>
@@ -65,11 +64,6 @@
 								<small>Direccion</small>
 								<li><input name="direction" type="tel" value="{{$user->direction}}"></li>
 							</ul> -->
-						
-							<ul >
-								<small>password</small>
-								<li><input name="password" type="password" value="{{$user->password}}"></li>
-							</ul>
 
 							<ul>
 								<small>Email</small>

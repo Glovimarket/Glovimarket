@@ -30,14 +30,26 @@
 								@method('put')
 
 								
-							<ul>
-								<small>Nombre del Proveedor</small>
-								<li><input name="users_id" type="text" value="{{$income->users_id}}"></li>
-							</ul>
-							<ul>
-								<small>Nombre del Prodicto</small>
-								<li><input name="products_id" type="text" value="{{$income->products_id}}"></li>
-							</ul>
+								<ul>
+									<small>Nombre del Producto</small>
+									<li>
+										<select name="supplier_id">
+											@foreach ($suppliers as $supplier)
+											<option required value="{{$supplier->id}}">{{$supplier->name}}</option>
+											@endforeach
+										</select>
+				  					</li>
+								</ul>
+								<ul>
+									<small>Nombre de la Empresa</small>
+									<li>
+										<select name="products_id">
+											@foreach ($products as $product)
+											<option required value="{{$product->id}}">{{$product->name}}</option>
+											@endforeach
+										</select>
+				  					</li>
+								</ul>
 							<ul>
 								<small>Cantidad Existentes</small>
 								<li><input name="amount_products" type="text" value="{{$income->amount_products}}"></li>
@@ -48,7 +60,7 @@
 							</ul>
 							<ul>
 								<small>Fecha del Ingreso</small>
-								<li><input name="date" type="text" value="{{$income->date}}"></li>
+								<li><input name="date" type="date" value="{{$income->date}}"></li>
 							</ul>
 							<div class="container-mi-perfil-img">
 								<button type="submit"class="mi-perfil-guardar-cambios">Guardar cambios</button>

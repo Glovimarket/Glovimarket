@@ -27,5 +27,7 @@ class DatabaseSeeder extends Seeder
         Supplier::factory(10)->create();
         ExitProducts::factory(10)->create();
         Income::factory(10)->create();
+
+        $this->call(ProfessionSeeder::class);
     }
 }

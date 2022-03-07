@@ -79,6 +79,7 @@ class ProductsController extends Controller
         $product->url = $request->url;
 
         $product->save();
+        return redirect()->route('admin.products.index');
         #return view('admin.products.show', compact('product'));
 
         return $request;

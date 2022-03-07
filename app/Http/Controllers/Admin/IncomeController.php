@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Income;
+use App\Models\Supplier;
+use App\Models\Products;
 
 class IncomeController extends Controller
 {
@@ -12,6 +14,15 @@ class IncomeController extends Controller
 
     public function index(){
         $incomes = Income::all();
+        $i = 0;
+        foreach ($incomes as $valor) {
+            
+            $supplier = Supplier::find($incomes[$i]->supplier_id);
+            $incomes[$i]->supplier_id = $supplier->name;
+            $product = Products::find($incomes[$i]->products_id);
+            $incomes[$i]->products_id = $product->name;
+            $i = $i + 1;
+        }
 
         return view('admin.incomes.index', compact('incomes'));
     }
@@ -26,8 +37,19 @@ class IncomeController extends Controller
 
         $income = Income::find($id);
 
-        return view('admin.incomes.show', compact('income'));
+        $i = 0;            
+            $supplier = Supplier::find($income->supplier_id);
+            $suppliers = Supplier::all();
+            $products = Products::all();
+            $income->supplier_id = $supplier->name;
+            $product = Products::find($income->products_id);
+            $income->products_id = $product->name;
+            $i = $i + 1;
+
+
+        return view('admin.incomes.show', compact('income', 'suppliers', 'products'));
     }
+
 
     public function store(Request $request){
         $income = new Income();
@@ -45,21 +67,20 @@ class IncomeController extends Controller
 
     public function edit(Income $id)
     {
-        return view('admin.incomes.edit', compact('id'));
+        return view('admin.incomes.edit', compact('income', 'suppliers', 'products'));
     }
 
     public function update(Request $request, Income $income)
     {
-        $income->users_id = $request->users_id;
+        $income->users_id = $income->users_id;
+        $income->supplier_id = $request->supplier_id;
         $income->products_id = $request->products_id;
         $income->amount_products = $request->amount_products;
         $income->value = $request->value;
         $income->date = $request->date;
 
         $income->save();
-        return view('admin.incomes.show', compact('income'));
-
-        return $income;
+        return redirect()->route('admin.incomes.index');
     }
 
     public function destroy(Income $income)

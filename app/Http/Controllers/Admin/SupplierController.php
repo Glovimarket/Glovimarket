@@ -10,10 +10,10 @@ use App\Models\Products;
 class SupplierController extends Controller
 {
     public function index(){
-        $suppliers = Supplier::all();
+        $supplier = Supplier::all();
         
 
-        return view('admin.suppliers.index', compact('suppliers'));
+        return view('admin.suppliers.index', compact('supplier'));
     }
 
     public function create(){
@@ -26,9 +26,9 @@ class SupplierController extends Controller
     public function show($id){
 
         $supplier = Supplier::find($id);
-        $categories = Products::all();
+        $products = Products::all();
 
-        return view('admin.suppliers.show', compact('supplier'));
+        return view('admin.suppliers.show', compact('supplier', 'products'));
     }
 
     public function store(Request $request){
@@ -52,17 +52,14 @@ class SupplierController extends Controller
 
     public function update(Request $request, Supplier $supplier)
     {
-        $supplier->first_name = $request->first_name;
-        $supplier->second_name = $request->second_name;
-        $supplier->last_name = $request->last_name;
-        $supplier->second_surname = $request->second_surname;
+        $supplier->name = $request->name;
+        $supplier->name_supplier = $request->name_supplier;
         $supplier->telephone = $request->telephone;
-        $supplier->direction = $request->direction;
         $supplier->email = $request->email;
-        $supplier->password = $request->password;
+        $supplier->products_id = $request->products_id;
 
         $supplier->save();
-        return view('admin.suppliers.mi-perfil', compact('supplier'));
+        return redirect()->route('admin.suppliers.index');
     }
 
     public function destroy(Supplier $supplier)
